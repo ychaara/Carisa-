@@ -10,7 +10,7 @@ class Dashboard_Page extends StatefulWidget {
 }
 
 class _Dashboard_PageState extends State<Dashboard_Page> {
-  TextEditingController voucherController =TextEditingController();
+  TextEditingController voucherController = TextEditingController();
 
   bool voucherAktif = false;
   bool isVisible = true;
@@ -31,14 +31,12 @@ class _Dashboard_PageState extends State<Dashboard_Page> {
 
   int get totalPesanana => counter1 + counter2 + counter3 + counter4;
 
-
   @override
-  void dispose(){
+  void dispose() {
     voucherController.dispose();
-
     super.dispose();
   }
-  
+
   int total = 0;
 
   int harga1 = 20000;
@@ -56,67 +54,61 @@ class _Dashboard_PageState extends State<Dashboard_Page> {
   }
 
   @override
- Widget build(BuildContext context) {
-  return Scaffold(
-    backgroundColor: Colors.brown[100],
-    appBar: PreferredSize(preferredSize: const Size.fromHeight(65.0),
-     child: Column(
-      children: [
-        AppBar(
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.brown[100],
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(85.0),
+        child: AppBar(
           backgroundColor: Colors.brown[100],
           automaticallyImplyLeading: true,
           flexibleSpace: Container(
-            padding: const EdgeInsets.only(right: 16, left:  16, top: 14),
-            height: 85,
-            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(10),
                 bottomRight: Radius.circular(10),
               ),
               image: DecorationImage(
-                image:  AssetImage ('assets/AppBar.png'),
-                fit: BoxFit.cover
-                ),
+                image: AssetImage('assets/AppBar.png'),
+                fit: BoxFit.cover,
+              ),
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      height:  50,
+                      height: 50,
                       width: 50,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/logodashboard.png'),
                           fit: BoxFit.cover,
-                          ),
+                        ),
                       ),
                     ),
-                    const SizedBox(
-                      width: 15,
+                    const SizedBox(width: 15),
+                    Flexible(
+                      child: Text(
+                        'Coffee Shop',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.brown[800],
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                    Text(
-                      'Coffee Shop',
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.brown[800],
-                      ),
-                      ),
                   ],
                 ),
               ],
             ),
           ),
-        )
-      ],
-     ),
-  ),
-  );
- }
+        ),
+      ),
+    );
+  }
 }
