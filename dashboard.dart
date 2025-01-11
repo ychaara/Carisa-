@@ -139,8 +139,7 @@ class _Dashboard_PageState extends State<Dashboard_Page> {
                           ),
                         ),
                       ),
-                      Expanded(
-                        child: Column(
+                     Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
@@ -164,7 +163,7 @@ class _Dashboard_PageState extends State<Dashboard_Page> {
                             ),
                             const Spacer(),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 IconButton(
                                   icon: const Icon(Icons.remove),
@@ -194,7 +193,6 @@ class _Dashboard_PageState extends State<Dashboard_Page> {
                             ),
                           ],
                         ),
-                      ),
                     ],
                   ),
                 ),
@@ -233,15 +231,14 @@ class _Dashboard_PageState extends State<Dashboard_Page> {
                         height: 50,
                         width: 50,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
                           image: const DecorationImage(
                             image: AssetImage('assets/Menu2.png'),
                             fit: BoxFit.cover,
                           ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      Expanded(
-                        child: Column(
+                      Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
@@ -295,7 +292,6 @@ class _Dashboard_PageState extends State<Dashboard_Page> {
                             ),
                           ],
                         ),
-                      ),
                     ],
                   ),
                 ),
@@ -304,7 +300,7 @@ class _Dashboard_PageState extends State<Dashboard_Page> {
           ),
           Expanded(
             child: ListView(
-              children: [
+              children:[
                 Container(
                   margin: const EdgeInsets.symmetric(
                     horizontal: 20,
@@ -341,8 +337,7 @@ class _Dashboard_PageState extends State<Dashboard_Page> {
                           ),
                         ),
                       ),
-                      Expanded(
-                        child: Column(
+                     Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
@@ -396,7 +391,6 @@ class _Dashboard_PageState extends State<Dashboard_Page> {
                             ),
                           ],
                         ),
-                      ),
                     ],
                   ),
                 ),
@@ -442,8 +436,7 @@ class _Dashboard_PageState extends State<Dashboard_Page> {
                           ),
                         ),
                       ),
-                      Expanded(
-                        child: Column(
+                     Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
@@ -497,13 +490,205 @@ class _Dashboard_PageState extends State<Dashboard_Page> {
                             ),
                           ],
                         ),
-                      ),
                     ],
                   ),
                 ),
               ],
             ),
           ),
+          Visibility(
+          visible: isVisible,
+          child: Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0x499C9C9C),
+                  blurRadius: 2,
+                  offset: Offset(0, 0),
+                  spreadRadius: 1,
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Padding(padding: const EdgeInsets.only(
+                  left: 10, right: 10, top: 10, bottom: 10),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Total Pesanan',
+                        style: GoogleFonts.poppins(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.brown,),
+                      ),
+                      const Spacer(),
+                      Text(
+                        'Rp $total',
+                        style: GoogleFonts.poppins(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.brown),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Divider(
+                          color: Colors.brown,
+                        ),
+                      ),
+                      Padding(padding: 
+                      const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.confirmation_num_sharp,
+                          size: 30, color: Colors.brown),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            'Voucher',
+                            style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.brown,
+                            ),
+                          ),
+                          const Spacer(),
+                          GestureDetector(
+                            onTap: (){
+                              setState(() {
+                                isVisible = isvisible;
+                              });
+                            },
+                            child: Row(
+                              children: [
+                               voucherAktif,
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      'hemat',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      '$diskon%',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  'Input Voucher',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.grey[600],
+                                ),
+                              ),
+                              const SizedBox(width: 5,),
+                              const Icon(
+                                color: Colors.brown,
+                                Icons.arrow_forward_ios,
+                                size: 15,
+                              ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 10,),
+                          Column(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.only(left: 20, right: 20),
+                                height: 67,
+                                decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20)
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: 
+                                      Color(0x499C9C9C),
+                                      blurRadius: 2,
+                                      offset: Offset(0, 0),
+                                      spreadRadius: 1,
+                                    ),
+                                  ],
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const Icon(Icons.shopping_basket_rounded,
+                                    size: 30, color: Colors.brown,
+                                    ),
+                                    const SizedBox(width: 15,),
+                                    Expanded(child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Total Pembayaran',
+                                          style: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 12,
+                                            color: Colors.brown,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Expanded(child: InkWell(
+                                    onTap: () {},
+                                    child: Container(
+                                      height: 35,
+                                      width: MediaQuery.of(context).size.width,
+                                      decoration: BoxDecoration(
+                                        color: Colors.brown,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: Center(
+                                        child: Text("Pesan Sekarang",
+                                        style: GoogleFonts.poppins(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 12,
+                                          color: Colors.white,
+                                        ),),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                               ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      )
+                    ],
+                  )
+                  ),
+              ],
+            ),
+          ),
+         ),
         ],
       ),
     );
